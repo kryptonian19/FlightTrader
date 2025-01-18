@@ -1,7 +1,7 @@
 # FlightTrader
 The Flight Trader project is a web-based platform designed for users to trade flight tickets. It provides a seamless user experience with visually appealing pages, an intuitive interface, and functionality for both buying and selling flight tickets. Here's a detailed breakdown of the project:
 
-I. Key Features\n
+I. Key Features  
     1. User Authentication
 
       i. Sign-Up Page:
