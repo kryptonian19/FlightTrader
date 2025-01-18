@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Flight Trader</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body style="background: url('/static/signup-bg.jpg') ;">
+    <div class="profile-container">
+        <h2>Your Profile</h2>
+        <p><strong>Name:</strong> {{ user.name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Phone:</strong> {{ user.phone }}</p>
+        <h3>Your Tickets</h3>
+        {% if user.tickets_owned %}
+            <ul>
+                {% for ticket in user.tickets_owned %}
+                    <li>{{ ticket.ticket_id }}: {{ ticket.from_airport }} → {{ ticket.to_airport }} ({{ ticket.date_of_travel }})</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No tickets available. Add a ticket below:</p>
+        {% endif %}
+        <form action="/add-ticket" method="POST">
+            <input type="text" name="ticket_id" placeholder="Ticket ID" required>
+            <input type="text" name="to_airport" placeholder="To Airport" required>
+            <input type="text" name="from_airport" placeholder="From Airport" required>
+            <input type="date" name="date_of_travel" required>
+			
+			<input type="text" name="price" placeholder="Price" required>
+			
+            <button type="submit">Add Ticket</button>
+        </form>
+        <a href="/index">Back to Home</a>
+        <a href="/logout" style="color: red;">Logout</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Trader</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body style="background: url('/static/signup-bg.jpg') ;">
+    <header>
+		<h1>Welcome, {{ session['user_name'] }}</h1>
+        <h2 style="text-align: center;">FLIGHT TRADER</h2>
+        <a href="/profile">
+            <div class="profile-pic"></div>
+        </a>
+    </header>
+    <div class="main-content">
+        <div class="search-section">
+            <h2>Search for Flights</h2>
+            <form action="/search" method="POST">
+                <input type="text" name="from_airport" placeholder="From Airport" required>
+                <input type="text" name="to_airport" placeholder="To Airport" required>
+                <input type="date" name="date" required>
+                <button type="submit">Search Flights</button>
+            </form>
+            <!--{% if search_results %}
+                {% if tickets %}
+                    <h3>Available Flights</h3>
+                    <ul>
+                        {% for ticket in tickets %}
+                            <li>
+                                {{ ticket.from_airport }} → {{ ticket.to_airport }} 
+                                ({{ ticket.date_of_travel }}) - ${{ ticket.price }}
+                                <a href="/buy/{{ ticket.id }}">Buy</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No flights found for your search.</p>
+                {% endif %}
+            {% endif %}!-->
+			
+			<ul>
+				{% if tickets %}
+					{% for ticket in tickets %}
+						<li>
+							<span>
+								<strong>{{ ticket.from_airport }}</strong> → 
+								<strong>{{ ticket.to_airport }}</strong>
+								({{ ticket.date_of_travel }})
+							</span>
+							<span>${{ ticket.price }}</span>
+							<a href="/buy/{{ ticket.id }}">Buy</a>
+						</li>
+					{% endfor %}
+				{% else %}
+					<p>No tickets found.</p>
+				{% endif %}
+			</ul>
+			
+        </div>
+
+        <div class="sell-section">
+            <h2>Sell Your Tickets</h2>
+            <form action="/sell" method="POST">
+                <input type="text" name="ticket_id" placeholder="Ticket ID" required>
+                <input type="number" name="price" step="0.01" placeholder="Ticket Price ($)" required>
+                <button type="submit">Post Ticket</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
