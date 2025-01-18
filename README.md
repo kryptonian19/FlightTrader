@@ -6,10 +6,10 @@ I. Key Features
 
       i. Sign-Up Page:
         Users can register by providing their name, email, phone number, and password.
-        A visually engaging form is presented with user-friendly input fields.
-Login Page:
-Registered users can log in using their email and password.
-Validation ensures secure authentication.
+        A visually engaging form is presented with user-friendly input fields.  
+      ii. Login Page:
+        Registered users can log in using their email and password.
+        Validation ensures secure authentication.
 Index Page
 
 The primary dashboard for users post-login.
