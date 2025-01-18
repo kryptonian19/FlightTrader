@@ -1,111 +1,68 @@
-# FlightTrader
-The Flight Trader project is a web-based platform designed for users to trade flight tickets. It provides a seamless user experience with visually appealing pages, an intuitive interface, and functionality for both buying and selling flight tickets. Here's a detailed breakdown of the project:
+# ✈️ Flight Trader
 
-I. Key Features  
-    1. User Authentication
+Flight Trader is a web-based application that allows users to seamlessly buy and sell flight tickets. It features user authentication, dynamic ticket transactions, and a visually appealing interface to enhance the user experience.
 
-      i. Sign-Up Page:
-        Users can register by providing their name, email, phone number, and password.
-        A visually engaging form is presented with user-friendly input fields.  
-      ii. Login Page:
-        Registered users can log in using their email and password.
-        Validation ensures secure authentication.
-Index Page
+---
 
-The primary dashboard for users post-login.
-Divided into two main sections:
-Searching Tickets:
-Users can search for tickets by entering the "From Airport," "To Airport," and the travel date.
-If no tickets match the search criteria, a message displays: "No tickets found."
-If tickets are available, details such as Ticket ID, departure, and destination airports, date, and price are displayed with a "Buy" button.
-Selling Tickets:
-Users can sell their tickets by entering the ticket ID and price.
-This makes the ticket available for others searching for matching criteria.
-User Profile Page
+## 🚀 Features
 
-Accessible by clicking on the circular profile picture at the top-right corner of the index page.
-Displays the user’s:
-Name
-Email
-Phone number
-Owned tickets (if any).
-Provides options to:
-Add Tickets: Allows users to add ticket details (Ticket ID, From/To Airports, and Date of Travel).
-Log Out: Ends the user session and redirects to the login page.
-A back button navigates back to the index page.
-Dynamic Ticket Transactions
+### **User Authentication**
+- **Sign-Up**: Register by entering name, email, phone number, and password.
+- **Login**: Access the platform using registered credentials.
 
-Tickets sold by one user become available for purchase by others.
-The search functionality ensures that only matching tickets are displayed to buyers.
-Technical Details
-Frameworks and Technologies
-Backend:
+### **Index Page (Dashboard)**
+- **Search Tickets**:
+  - Enter "From Airport," "To Airport," and the date to search for flight tickets.
+  - Displays ticket details if available or a "No tickets found" message.
+  - Option to buy available tickets.
+- **Sell Tickets**:
+  - Enter Ticket ID and price to sell tickets.
+  - Tickets become available for other users to purchase.
+- Displays a personalized welcome message at the top left (e.g., *Welcome, John*).
 
-Flask (Python): Handles routing, session management, and server-side logic.
-SQLite: Lightweight database for storing user data, ticket details, and transactions.
-Frontend:
+### **User Profile**
+- View:
+  - Name
+  - Email
+  - Phone number
+  - Tickets owned
+- **Add Tickets**:
+  - Enter ticket details (Ticket ID, From/To Airports, Date of Travel) to add tickets.
+- **Log Out**: End session and redirect to the login page.
+- Navigate back to the index page.
 
-HTML: Structures the web pages.
-CSS: Enhances visual appeal with gradients, animations, hover effects, and responsive design.
-JavaScript (Optional): Adds interactivity, such as loading spinners.
-Static Files:
+### **Dynamic Ticket Transactions**
+- Tickets listed by one user are available for others to buy.
+- Ensures only matching tickets are displayed to buyers.
 
-Custom stylesheets (styles.css) and images are stored in a static/ directory.
-Templates:
+---
 
-Dynamic pages rendered using Jinja2 templates (.html files) with placeholders for dynamic content.
-Workflow
-Sign-Up:
+## 🛠️ Technologies Used
 
-Users visit the sign-up page by default when the app starts.
-Form data is validated and stored in the database.
-Login:
+### **Backend**
+- [Flask](https://flask.palletsprojects.com/): A lightweight Python web framework.
+- [SQLite](https://www.sqlite.org/): A lightweight database for storing user and ticket information.
 
-Users are redirected to the login page upon successful registration.
-Credentials are validated against the database, and a session is created.
-Index Page:
+### **Frontend**
+- **HTML**: For structuring web pages.
+- **CSS**: For styling, including animations, gradients, and hover effects.
+- **JavaScript (Optional)**: Adds interactivity (e.g., loading spinners).
 
-The user is greeted with a welcome message (e.g., Welcome, John).
-Users can:
-Search for tickets.
-Sell tickets they own.
-Profile Management:
+---
 
-Clicking the profile picture opens the profile page.
-Users can:
-View their details and tickets.
-Add new tickets.
-Log out.
-Database Structure
-Users Table:
-Stores user details (ID, name, email, phone, password).
-Tickets Table:
-Stores ticket information (ID, seller ID, from airport, to airport, date, price, and buyer ID).
-Transactions Table (Optional):
-Logs purchase history and ticket ownership changes.
-Visual Enhancements
-The project employs modern design principles to ensure a polished look:
+## 📂 Project Structure
 
-Gradient Backgrounds: Add depth and vibrancy.
-Hover Effects: Enhance interactivity on buttons and list items.
-Animations:
-Loading spinner for fetching results.
-Smooth transitions on button hover.
-Typography: Clean, readable fonts (e.g., Poppins).
-Use Case Example
-Scenario 1: Selling Tickets
-User 1 logs in and adds a ticket with ID T123, departing from JFK to LAX on 2025-01-20.
-They sell the ticket on the index page for $200.
-Scenario 2: Buying Tickets
-User 2 logs in and searches for a ticket from JFK to LAX on 2025-01-20.
-The system retrieves ticket T123 and displays it with the option to buy.
-Future Enhancements
-Payment Gateway Integration:
-Enable secure transactions using platforms like Stripe or PayPal.
-Email Notifications:
-Notify users when their ticket is purchased or a matching ticket is available.
-Mobile Responsiveness:
-Ensure the platform adapts seamlessly to smartphones and tablets.
-User Reviews:
-Allow buyers and sellers to rate each other for improved trust.
-This project offers a complete, visually appealing, and functional platform for trading flight tickets. It’s designed with scalability and extensibility in mind for future features! Let me know if you'd like further customization or additional features.
+```plaintext
+Flight-Trader/
+├── app.py                # Main application file
+├── templates/            # HTML templates
+│   ├── signup.html       # User sign-up page
+│   ├── login.html        # User login page
+│   ├── index.html        # Dashboard (search/sell tickets)
+│   ├── profile.html      # User profile page
+├── static/               # Static assets
+│   ├── styles.css        # Stylesheet for the project
+│   ├── profile-placeholder.jpg # Placeholder for user profile picture
+├── database.db           # SQLite database
+├── requirements.txt      # Python dependencies
+└── README.md             # Project documentation
