@@ -6,7 +6,6 @@ Flight Trader is a web-based application that allows users to seamlessly buy and
 
 ## How to Run the project
 
-### **Go to the master branch in this repository**
 - Go to the master branch in this repository.
 - Go to the codespace which is already created.
 - run the command **pip install -r requirements.txt** in the terminal.
